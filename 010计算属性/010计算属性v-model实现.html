@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>计算属性</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 4px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+
+    input {
+      display: block;
+      margin-top: 20px;
+    }
+
+    .name {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="container">
+      <h2>计算姓名</h2>
+      姓:<input type="text" v-model="firstName" placeholder="请输入您的姓式">
+      名:<input type="text" v-model="lastName" placeholder="请输入您的姓名">
+      <div class="name">您的姓名为{{firstName.slice(0,3) +lastName}}</div>
+    </div>
+
+  </div>
+
+
+
+  <script>
+    new Vue({
+      el: '#root',
+      data: function () {
+        return {
+          firstName: '张',
+          lastName: "三",
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

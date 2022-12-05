@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>事件修饰符</title>
+  <style>
+    * {
+      margin-top: 20px;
+    }
+
+    .demo1 {
+      height: 50px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <h2>欢迎来到百度</h2>
+    <!-- 阻止默认事件 -->
+    <a :href="url" @click.prevent="showInfo">百度</a>
+    <!-- 阻止事件冒泡 -->
+    <div class="demo1" @click="showInfo">
+      <button @click.stop="showInfo">点我提示信息</button>
+    </div>
+    <!-- 事件只触发一次 -->
+    <button @click.once="showInfo">点我点我</button>
+  </div>
+
+
+  <script>
+    new Vue({
+      el: '#root',
+      data: function () {
+        return {
+          url: 'www.baidu.com'
+        }
+      },
+      methods: {
+        showInfo(e) {
+
+          alert('欢迎欢迎')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

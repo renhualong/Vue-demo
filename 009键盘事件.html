@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>键盘事件</title>
+</head>
+
+<body>
+  <div id="root">
+    <h2>欢迎来到{{address}}</h2>
+    <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
+
+  </div>
+
+
+  <script>
+    new Vue({
+      el: '#root',
+      data: function () {
+        return {
+          address: "凡王寺"
+        }
+      },
+      methods: {
+        // showInfo(e) {
+        //   if (e.keyCode == 13) {
+        //     console.log(e.target.value)
+        //   }
+
+        // }
+        showInfo(e) {
+          console.log(e.target.value)
+        },
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

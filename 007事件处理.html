@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>事件处理</title>
+
+  <!-- 事件的基本使用：
+  *使用V-on：xxx或者 @xxx绑定事件，xxx是事件名
+  *事件的回调需要配置在methods对象中，最终会在VM上
+  *methods中配置的函数，都是被vue管理的函数，this的指向是Vm或组件实例对象
+  *@click = "demo"和@click ="demo($event)"效果一致，后者可以传参 -->
+</head>
+
+<body>
+  <div id="root">
+
+    <h2>{{name}}</h2>
+    <button v-on:click="showInfo">点我提示信息</button>
+    <button @click="showInfo">点我点我</button>
+    <button @click="showInfo2(66,$event)">点我点我2</button>
+  </div>
+  <script>
+    new Vue({
+      el: '#root',
+      data: function () {
+        return {
+          name: '王心怡'
+        }
+
+      },
+      methods: {
+        showInfo(event) {
+          console.log(event.target.innerText)
+          console.log(this)
+          alert('我是任华龙新娘')
+        },
+        showInfo2(number, a) {
+          alert(`${number}${a.target.innerText}`)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
