@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>列表过滤</title>
+</head>
+
+<body>
+  <div id="root">
+    <h2>列表过滤</h2>
+    <input type="text" placeholder="请输入姓名" v-model="keyWord">
+    <ul>
+      <li v-for="p in filePerson" :key="p.id">
+        {{p.name}} - {{p.age}} - {{p.sex}}
+      </li>
+    </ul>
+  </div>
+
+
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+        return {
+          personArr: [
+            { id: 001, name: '周冬雨', sex: '女', age: 18 },
+            { id: 002, name: '马冬梅', sex: '女', age: 19 },
+            { id: 003, name: '周杰伦', sex: '男', age: 20 },
+            { id: 004, name: '温兆伦', sex: '男', age: 21 },
+          ],
+          keyWord: '',
+          filePerson: [
+
+          ]
+        }
+      },
+      watch: {
+        keyWord: {
+          immediate: true,
+          handler(a, b) {
+            this.filePerson = this.personArr.filter((p) => {
+              return p.name.indexOf(a) !== -1
+            })
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
