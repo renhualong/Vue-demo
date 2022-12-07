@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <title>列表渲染</title>
+</head>
+
+<body>
+  <div id="root">
+    <h2>人员列表</h2>
+    <ul>
+      <li v-for="p in personArr" :key="p.id"> {{p.name}} : {{p.age}}</li>
+    </ul>
+    <br>
+    <h2>汽车信息</h2>
+    <ul>
+      <li v-for="(value,key) in car" :key="key">{{key}} : {{value}}</li>
+    </ul>
+  </div>
+  <br>
+
+
+
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+        return {
+          personArr: [
+            { id: 001, name: '张三', age: 18 },
+            { id: 002, name: '李四', age: 19 },
+            { id: 003, name: '王五', age: 20 },
+          ],
+          car: {
+            name: "奥迪A8",
+            价格: "70万",
+            color: "黑色"
+          },
+          str: 'hello'
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
